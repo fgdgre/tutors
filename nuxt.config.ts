@@ -5,4 +5,10 @@ export default defineNuxtConfig({
   ssr: false,
   appDir: "/app",
   css: ["/assets/scss/main.scss"],
+  components: [
+    {
+      path: "~/components",
+      pathPrefix: false,
+    },
+  ],
 });

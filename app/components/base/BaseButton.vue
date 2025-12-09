@@ -60,7 +60,7 @@ const props = withDefaults(
   &--outline {
     background-color: transparent;
     color: $color-actions-text-main;
-    border-color: #d2d2e6;
+    border-color: $color-border;
 
     &:hover {
       background-color: #f0f7ff;
