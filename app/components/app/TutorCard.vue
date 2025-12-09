@@ -1,19 +1,39 @@
+<script setup lang="ts">
+import type { Subjects, Tutor } from "~/types/tutor";
+
+defineProps<{
+  tutor: Tutor;
+}>();
+
+defineEmits<{
+  bookLesson: [];
+  readMore: [];
+}>();
+
+const subjectsMap: Record<Subjects, string> = {
+  english: "English Tutor",
+  math: "Math Tutor",
+  reading: "Reading Tutor",
+  science: "Science Tutor",
+};
+</script>
+
 <template>
   <article class="tutor-card">
     <header>
       <div class="tutor-card__personal-info">
-        <img class="tutor-card__avatar" src="" :alt="`profile picture`" />
+        <img class="tutor-card__avatar" />
 
-        <h2 class="tutor-card__title">Title</h2>
+        <h2 class="tutor-card__title">{{ tutor.name }}</h2>
       </div>
 
       <div class="tutor-card__professional-info">
-        <p class="tutor-card__subject">subject</p>
-        <p class="tutor-card__students-number">Students: 123213</p>
+        <p class="tutor-card__subject">{{ subjectsMap[tutor.subject] }}</p>
+        <p class="tutor-card__students-number">Students: {{ tutor.students }}</p>
       </div>
     </header>
 
-    <p class="tutor-card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, blanditiis fugit voluptates magni velit natus, laboriosam ipsum, rem nostrum facilis ea libero voluptas sequi quod mollitia veritatis harum unde. Iure?</p>
+    <p class="tutor-card__description">{{ tutor.description }}</p>
 
     <div class="tutor-card__actions">
       <BaseButton full-width @click="$emit('bookLesson')">Book a lesson</BaseButton>
@@ -38,6 +58,7 @@
   }
 
   &__avatar {
+    background-color: #62748e;
     width: 32px;
     height: 32px;
     border-radius: 999px;

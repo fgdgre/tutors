@@ -108,6 +108,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 }
 
 .app-header {
@@ -123,11 +124,12 @@
     grid-template-columns: 40px 1fr;
     height: 100%;
     align-items: center;
-    padding: 12px 16px;
+    padding-block: 12px;
+    padding-inline: $space-inline-mobile;
 
     @include tablet {
       grid-template-columns: 42px 1fr 42px;
-      padding: 11px 24px;
+      padding-inline: $space-inline-tablet;
     }
   }
 
@@ -182,13 +184,13 @@
     font-size: 14px;
     text-decoration: none;
     font-weight: 700;
-    color: $color-actions-text-main;
+    color: $color-button-text;
     background-color: transparent;
     fill: #90a1b9;
 
     &--active {
       color: $color-primary;
-      fill: $color-text-primary;
+      fill: $color-text-accent;
       background-color: $color-primary-soft;
     }
   }
@@ -198,5 +200,6 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  overflow: hidden;
 }
 </style>

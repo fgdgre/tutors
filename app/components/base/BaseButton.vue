@@ -59,7 +59,7 @@ const props = withDefaults(
 
   &--outline {
     background-color: transparent;
-    color: $color-actions-text-main;
+    color: $color-button-text;
     border-color: $color-border;
 
     &:hover {

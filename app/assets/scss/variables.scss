@@ -1,13 +1,15 @@
 $color-primary: #6679dd;
 $color-primary-soft: #edf0ff;
-$color-text-primary: #8797f0;
-// $color-text-primary-soft: #8797f0;
-$color-text-main: #0f172b;
-$color-actions-text-main: #314158;
+$color-text-accent: #8797f0;
+$color-text-main: hsl(223, 48%, 11%);
+$color-button-text: #314158;
 $color-border: #cad5e2;
 $button-border-radius: 8px;
 
 $app-header-height: 64px;
+
+$space-inline-mobile: 16px;
+$space-inline-tablet: 24px;
 
 $bp-tablet: 740px;
 $bp-desktop: 1280px;
