@@ -181,7 +181,7 @@
     user-select: none;
     padding: 10px 10px;
     border-radius: $button-border-radius;
-    font-size: 14px;
+    font-size: 16px;
     text-decoration: none;
     font-weight: 700;
     color: $color-button-text;

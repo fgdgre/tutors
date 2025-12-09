@@ -39,7 +39,7 @@ const props = withDefaults(
   padding: 8px 16px;
   border-radius: $button-border-radius;
   border: 1px solid transparent;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;

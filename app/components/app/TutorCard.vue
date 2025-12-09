@@ -1,16 +1,10 @@
 <script setup lang="ts">
-import type { Subjects, Tutor } from "~/types/tutor";
+import type { Tutor } from "~/types/tutor";
+import { subjectsMap } from "~/constants/subject";
 
 defineProps<{
   tutor: Tutor;
 }>();
-
-const subjectsMap: Record<Subjects, string> = {
-  english: "English Tutor",
-  math: "Math Tutor",
-  reading: "Reading Tutor",
-  science: "Science Tutor",
-};
 
 const isMobile = useMediaQuery("(max-width: 739px)");
 
@@ -27,11 +21,11 @@ const handleCloseInfoModal = () => {
 
 <template>
   <article class="tutor-card">
-    <img class="tutor-card__avatar--tablet" />
+    <img class="tutor-card__avatar tutor-card__avatar--tablet" :src="tutor.avatar" :alt="`${tutor.name}'s avatar'`" />
     <div class="tutor-card__wrapper">
       <header>
         <div class="tutor-card__personal-info">
-          <img class="tutor-card__avatar--mobile" />
+          <img class="tutor-card__avatar tutor-card__avatar--mobile" :src="tutor.avatar" :alt="`${tutor.name}'s avatar'`" />
 
           <h2 class="tutor-card__title">{{ tutor.name }}</h2>
         </div>
@@ -55,7 +49,7 @@ const handleCloseInfoModal = () => {
   <BaseModal v-if="isInfoModalOpen" show-close-button @close="handleCloseInfoModal">
     <template #default>
       <div class="info-modal">
-        <img class="info-modal__avatar" />
+        <img class="info-modal__avatar" :src="tutor.avatar" :alt="`${tutor.name}'s avatar'`" />
 
         <h2 class="info-modal__title">{{ tutor.name }}</h2>
 
@@ -94,13 +88,14 @@ const handleCloseInfoModal = () => {
     gap: 12px;
   }
 
-  &__avatar--mobile {
-    background-color: #62748e;
+  &__avatar {
     width: 32px;
     height: 32px;
     border-radius: 999px;
-    object-fit: contain;
+    object-fit: cover;
+  }
 
+  &__avatar--mobile {
     @include tablet {
       display: none;
     }
@@ -111,8 +106,6 @@ const handleCloseInfoModal = () => {
     width: 66px;
     height: 66px;
     border-radius: 16px;
-    background-color: #62748e;
-    flex-shrink: 0;
 
     @include tablet {
       display: block;
@@ -165,7 +158,6 @@ const handleCloseInfoModal = () => {
     width: 66px;
     height: 66px;
     border-radius: 16px;
-    background-color: #62748e;
     flex-shrink: 0;
     margin-inline: auto;
   }
