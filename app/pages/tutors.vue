@@ -30,7 +30,7 @@ const {
   data: tutors,
   pending,
   error,
-} = await useAsyncData<Tutor[]>("tutors", async () => {
+} = useAsyncData<Tutor[]>("tutors", async () => {
   const users = await $fetch<ApiUser[]>("https://jsonplaceholder.typicode.com/users");
 
   return users.slice(0, 4).map((user, index): Tutor => {
@@ -49,16 +49,23 @@ const {
   <section class="tutors">
     <div class="tutors__list-wrapper">
       <h1 class="tutors__title">Choose tutor</h1>
-      <ul class="tutors__list">
-        <li v-for="tutor of tutors" class="tutors__list-item">
+
+      <p v-if="pending">loading...</p>
+
+      <p v-else-if="error">Something went wrong</p>
+
+      <ul v-else-if="tutors?.length" class="tutors__list">
+        <li v-for="tutor of tutors" :key="tutor.name + tutor.description" class="tutors__list-item">
           <TutorCard :tutor />
         </li>
       </ul>
+
+      <p v-else>No tutors found</p>
     </div>
   </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use "@/assets/scss/variables" as *;
 @use "@/assets/scss/mixins" as *;
 
