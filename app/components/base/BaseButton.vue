@@ -78,6 +78,7 @@ const props = withDefaults(
 
   &--square {
     padding: 8px;
+    border: none;
   }
 }
 </style>

@@ -13,6 +13,16 @@ const subjectsMap: Record<Subjects, string> = {
 };
 
 const isMobile = useMediaQuery("(max-width: 739px)");
+
+const isInfoModalOpen = ref(false);
+
+const handleOpenInfoModal = () => {
+  isInfoModalOpen.value = true;
+};
+
+const handleCloseInfoModal = () => {
+  isInfoModalOpen.value = false;
+};
 </script>
 
 <template>
@@ -35,12 +45,33 @@ const isMobile = useMediaQuery("(max-width: 739px)");
       <p class="tutor-card__description">{{ tutor.description }}</p>
 
       <div class="tutor-card__actions">
-        <BaseButton :full-width="isMobile" @click="$emit('bookLesson')">Book a lesson</BaseButton>
+        <BaseButton :full-width="isMobile" @click="console.log('Book a lesson')">Book a lesson</BaseButton>
 
-        <BaseButton :full-width="isMobile" variant="outline" @click="$emit('readMore')">Read more</BaseButton>
+        <BaseButton :full-width="isMobile" variant="outline" @click="handleOpenInfoModal">Read more</BaseButton>
       </div>
     </div>
   </article>
+
+  <BaseModal v-if="isInfoModalOpen" show-close-button @close="handleCloseInfoModal">
+    <template #default>
+      <div class="info-modal">
+        <img class="info-modal__avatar" />
+
+        <h2 class="info-modal__title">{{ tutor.name }}</h2>
+
+        <div class="info-modal__professional-info">
+          <p class="info-modal__subject">{{ subjectsMap[tutor.subject] }}</p>
+          <p class="info-modal__students-number">Students: {{ tutor.students }}</p>
+        </div>
+
+        <p class="info-modal__description">{{ tutor.description }}</p>
+      </div>
+    </template>
+
+    <template #actions>
+      <BaseButton variant="outline" @click="handleCloseInfoModal">Close</BaseButton>
+    </template>
+  </BaseModal>
 </template>
 
 <style scoped lang="scss">
@@ -122,6 +153,41 @@ const isMobile = useMediaQuery("(max-width: 739px)");
         flex: 0 0 auto;
       }
     }
+  }
+}
+
+.info-modal {
+  display: flex;
+  flex-direction: column;
+
+  &__avatar {
+    margin-top: 40px;
+    width: 66px;
+    height: 66px;
+    border-radius: 16px;
+    background-color: #62748e;
+    flex-shrink: 0;
+    margin-inline: auto;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  &__professional-info {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: #62748e;
+  }
+
+  &__description {
+    margin-top: 24px;
   }
 }
 </style>
