@@ -164,7 +164,7 @@
 
   &__nav {
     display: flex;
-    gap: 12px;
+    gap: 32px;
     grid-column-start: 2;
     justify-self: end;
 
@@ -178,17 +178,17 @@
     gap: 4px;
     user-select: none;
     padding: 10px 10px;
-    border-radius: 8px;
+    border-radius: $button-border-radius;
     font-size: 14px;
     text-decoration: none;
     font-weight: 700;
-    color: #4b4b63;
+    color: $color-actions-text-main;
     background-color: transparent;
     fill: #90a1b9;
 
     &--active {
-      color: $color-text-primary;
-      fill: $color-text-primary-soft;
+      color: $color-primary;
+      fill: $color-text-primary;
       background-color: $color-primary-soft;
     }
   }
