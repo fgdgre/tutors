@@ -5,51 +5,57 @@ defineProps<{
   tutor: Tutor;
 }>();
 
-defineEmits<{
-  bookLesson: [];
-  readMore: [];
-}>();
-
 const subjectsMap: Record<Subjects, string> = {
   english: "English Tutor",
   math: "Math Tutor",
   reading: "Reading Tutor",
   science: "Science Tutor",
 };
+
+const isMobile = useMediaQuery("(max-width: 739px)");
 </script>
 
 <template>
   <article class="tutor-card">
-    <header>
-      <div class="tutor-card__personal-info">
-        <img class="tutor-card__avatar" />
+    <img class="tutor-card__avatar--tablet" />
+    <div class="tutor-card__wrapper">
+      <header>
+        <div class="tutor-card__personal-info">
+          <img class="tutor-card__avatar--mobile" />
 
-        <h2 class="tutor-card__title">{{ tutor.name }}</h2>
+          <h2 class="tutor-card__title">{{ tutor.name }}</h2>
+        </div>
+
+        <div class="tutor-card__professional-info">
+          <p class="tutor-card__subject">{{ subjectsMap[tutor.subject] }}</p>
+          <p class="tutor-card__students-number">Students: {{ tutor.students }}</p>
+        </div>
+      </header>
+
+      <p class="tutor-card__description">{{ tutor.description }}</p>
+
+      <div class="tutor-card__actions">
+        <BaseButton :full-width="isMobile" @click="$emit('bookLesson')">Book a lesson</BaseButton>
+
+        <BaseButton :full-width="isMobile" variant="outline" @click="$emit('readMore')">Read more</BaseButton>
       </div>
-
-      <div class="tutor-card__professional-info">
-        <p class="tutor-card__subject">{{ subjectsMap[tutor.subject] }}</p>
-        <p class="tutor-card__students-number">Students: {{ tutor.students }}</p>
-      </div>
-    </header>
-
-    <p class="tutor-card__description">{{ tutor.description }}</p>
-
-    <div class="tutor-card__actions">
-      <BaseButton full-width @click="$emit('bookLesson')">Book a lesson</BaseButton>
-
-      <BaseButton variant="outline" full-width @click="$emit('readMore')">Read more</BaseButton>
     </div>
   </article>
 </template>
 
 <style scoped lang="scss">
 @use "@/assets/scss/variables" as *;
+@use "@/assets/scss/mixins" as *;
 
 .tutor-card {
   padding: 16px;
   border: 1px solid $color-border;
   border-radius: 16px;
+
+  @include tablet {
+    display: flex;
+    gap: 16px;
+  }
 
   &__personal-info {
     display: flex;
@@ -57,12 +63,29 @@ const subjectsMap: Record<Subjects, string> = {
     gap: 12px;
   }
 
-  &__avatar {
+  &__avatar--mobile {
     background-color: #62748e;
     width: 32px;
     height: 32px;
     border-radius: 999px;
     object-fit: contain;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__avatar--tablet {
+    display: none;
+    width: 66px;
+    height: 66px;
+    border-radius: 16px;
+    background-color: #62748e;
+    flex-shrink: 0;
+
+    @include tablet {
+      display: block;
+    }
   }
 
   &__title {
@@ -90,6 +113,15 @@ const subjectsMap: Record<Subjects, string> = {
     margin-top: 8px;
     display: flex;
     gap: 16px;
+
+    :deep(.button--full-width) {
+      width: 100%;
+
+      @include tablet {
+        width: auto;
+        flex: 0 0 auto;
+      }
+    }
   }
 }
 </style>

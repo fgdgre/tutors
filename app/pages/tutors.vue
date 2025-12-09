@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import type { Tutor } from "~/types/tutor";
 
-const handleBookLesson = () => {
-  console.log("book lesson");
-};
-const handleOpenTutorInfo = () => {
-  console.log("open tutor info");
-};
-
 const tutors = ref<Tutor[]>([
   {
     name: "asdsad",
@@ -50,7 +43,7 @@ const tutors = ref<Tutor[]>([
       <h1 class="tutors__title">Choose tutor</h1>
       <ul class="tutors__list">
         <li v-for="tutor of tutors" class="tutors__list-item">
-          <TutorCard :tutor @book-lesson="handleBookLesson" @read-more="handleOpenTutorInfo" />
+          <TutorCard :tutor />
         </li>
       </ul>
     </div>

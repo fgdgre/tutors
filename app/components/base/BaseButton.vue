@@ -40,9 +40,10 @@ const props = withDefaults(
   border-radius: $button-border-radius;
   border: 1px solid transparent;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  min-height: 40px;
 
   &--primary {
     background-color: $color-primary;
