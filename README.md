@@ -44,37 +44,6 @@ Nuxt 4, TypeScript, SCSS, VueUse, Vitest.
 
 ---
 
-## Завантажити усі залежності
-
-```sh
-npm install
-```
-
-## Запуск проєкту локально
-
-```sh
-npm run dev
-```
-
-## Запуск тестів
-
-```sh
-npx vitest
-```
-
-## Збірка та перегляд білду
-
-```sh
-npm run build
-npm run preview
-```
-
-## Запуск лінту
-
-```sh
-npm run lint
-```
-
 ## Запуск проєкту
 
 ## 1. Встановити залежності
