@@ -44,10 +44,15 @@ Nuxt 4, TypeScript, SCSS, VueUse, Vitest.
 
 ---
 
-## Запуск проєкту локально
+## Завантажити усі залежності
 
 ```sh
 npm install
+```
+
+## Запуск проєкту локально
+
+```sh
 npm run dev
 ```
 
@@ -68,4 +73,37 @@ npm run preview
 
 ```sh
 npm run lint
+```
+
+## Запуск проєкту
+
+## 1. Встановити залежності
+
+```sh
+npm install
+```
+
+## 2. Запустити лінтер (необов’язково)
+
+```sh
+npm run lint
+```
+
+## 3. Запуск у режимі розробки
+
+```sh
+npm run dev
+```
+
+## Запуск тестів
+
+```sh
+npx vitest
+```
+
+## Production-збірка
+
+```sh
+npm run build
+npm run preview
 ```
