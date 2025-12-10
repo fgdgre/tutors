@@ -52,7 +52,7 @@ Nuxt 4, TypeScript, SCSS, VueUse, Vitest.
 npm install
 ```
 
-## 2. Запустити лінтер (необов’язково)
+## 2. Запустити лінтер
 
 ```sh
 npm run lint
