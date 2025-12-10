@@ -1,7 +1,9 @@
 <template>
-  <h1 class="home__title">Home</h1>
+  <section>
+    <h1 class="home__title">Home</h1>
 
-  TBD
+    TBD
+  </section>
 </template>
 
 <style scoped lang="scss">

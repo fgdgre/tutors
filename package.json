@@ -7,7 +7,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@vueuse/core": "^14.1.0",
@@ -17,10 +19,16 @@
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@nuxt/eslint": "^1.12.1",
     "@nuxt/test-utils": "^3.21.0",
     "@vue/test-utils": "^2.4.6",
+    "eslint": "^9.39.1",
+    "eslint-plugin-vue": "^10.6.2",
     "happy-dom": "^20.0.11",
     "sass-embedded": "^1.93.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.49.0",
     "vitest": "^3.2.4"
   }
 }

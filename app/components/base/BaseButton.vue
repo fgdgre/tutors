@@ -1,9 +1,7 @@
 <script setup lang="ts">
-type Variant = "primary" | "outline";
-
-const props = withDefaults(
+withDefaults(
   defineProps<{
-    variant?: Variant;
+    variant?: "primary" | "outline";
     fullWidth?: boolean;
     square?: boolean;
   }>(),
