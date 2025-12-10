@@ -39,13 +39,15 @@ const {
   const users = await $fetch<ApiUser[]>("https://jsonplaceholder.typicode.com/users");
 
   return users.slice(0, 4).map((user, index): Tutor => {
-    const mock = mockData[index];
+    const { avatar, subject, students } = mockData[index]!;
 
     return {
       name: user.name,
       description: `${user.company.name}. ${user.company.catchPhrase}.`,
-      ...mock,
-    } as Tutor;
+      avatar,
+      subject,
+      students,
+    };
   });
 });
 </script>

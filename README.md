@@ -18,7 +18,7 @@
 
 - **README з інструкціями** — цей файл
 - **Деплой** — https://tutors-test-case.netlify.app
-- **ESLint** — виконав
+- **ESLint** — налаштований з рекомендованими правилами для Vue/TS
 
 ---
 
@@ -40,7 +40,7 @@
 
 ## Технології
 
-Nuxt 3, TypeScript, SCSS, VueUse, Vitest.
+Nuxt 4, TypeScript, SCSS, VueUse, Vitest.
 
 ---
 
