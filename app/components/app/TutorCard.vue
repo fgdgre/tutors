@@ -21,11 +21,11 @@ const handleCloseInfoModal = () => {
 
 <template>
   <article class="tutor-card">
-    <img class="tutor-card__avatar tutor-card__avatar--tablet" :src="tutor.avatar" :alt="`${tutor.name}'s avatar'`" />
+    <img class="tutor-card__avatar tutor-card__avatar--tablet" :src="tutor.avatar" :alt="`Avatar of ${tutor.name}`" />
     <div class="tutor-card__wrapper">
       <header>
         <div class="tutor-card__personal-info">
-          <img class="tutor-card__avatar tutor-card__avatar--mobile" :src="tutor.avatar" :alt="`${tutor.name}'s avatar'`" />
+          <img class="tutor-card__avatar tutor-card__avatar--mobile" :src="tutor.avatar" :alt="`Avatar of ${tutor.name}`" />
 
           <h2 class="tutor-card__title">{{ tutor.name }}</h2>
         </div>
@@ -49,7 +49,7 @@ const handleCloseInfoModal = () => {
   <BaseModal v-if="isInfoModalOpen" show-close-button @close="handleCloseInfoModal">
     <template #default>
       <div class="info-modal">
-        <img class="info-modal__avatar" :src="tutor.avatar" :alt="`${tutor.name}'s avatar'`" />
+        <img class="info-modal__avatar" :src="tutor.avatar" :alt="`Avatar of ${tutor.name}`" />
 
         <h2 class="info-modal__title">{{ tutor.name }}</h2>
 

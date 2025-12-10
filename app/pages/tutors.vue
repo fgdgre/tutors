@@ -3,6 +3,11 @@ import type { ApiUser } from "~/types/api";
 import type { Tutor } from "~/types/tutor";
 import { defaultUserAvatar } from "~/constants/user-avatar";
 
+useSeoMeta({
+  title: "Tutors | Tutors App",
+  description: "Choose a tutor from the list of available teachers.",
+});
+
 const mockData: Omit<Tutor, "name" | "description">[] = [
   {
     avatar: defaultUserAvatar,
@@ -12,12 +17,12 @@ const mockData: Omit<Tutor, "name" | "description">[] = [
   {
     avatar: defaultUserAvatar,
     students: 1560,
-    subject: "math",
+    subject: "reading",
   },
   {
     avatar: defaultUserAvatar,
     students: 1100,
-    subject: "math",
+    subject: "science",
   },
   {
     avatar: defaultUserAvatar,
@@ -38,7 +43,7 @@ const {
 
     return {
       name: user.name,
-      description: `${user.company.catchPhrase}. ${user.company.bs}.`,
+      description: `${user.company.name}. ${user.company.catchPhrase}.`,
       ...mock,
     } as Tutor;
   });
@@ -55,7 +60,7 @@ const {
       <p v-else-if="error">Something went wrong</p>
 
       <ul v-else-if="tutors?.length" class="tutors__list">
-        <li v-for="tutor of tutors" :key="tutor.name + tutor.description" class="tutors__list-item">
+        <li v-for="(tutor, index) of tutors" :key="index" class="tutors__list-item">
           <TutorCard :tutor />
         </li>
       </ul>

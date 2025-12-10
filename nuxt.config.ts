@@ -12,4 +12,9 @@ export default defineNuxtConfig({
     },
   ],
   modules: ["@vueuse/nuxt"],
+  app: {
+    head: {
+      title: "Tutors App",
+    },
+  },
 });
