@@ -1,75 +1,56 @@
-# Nuxt Minimal Starter
+# Tutors App
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+---
 
-## Setup
+## Додаткові завдання — виконано
 
-Make sure to install dependencies:
+- **Unit-тести (3 шт.)**  
+  Перевірено компонент `BaseModal`:
 
-```bash
-# npm
+  - блокування/відновлення скролу
+  - тригер закриття при кліку по backdrop
+  - тригер закриття при кліку по кнопці
+
+- **Meta-дані для сторінок**
+
+  - Глобальний `title` у `nuxt.config.ts`
+  - Сторінка `/tutors`: `useSeoMeta` для `title` і `description`
+
+- **README з інструкціями** — цей файл
+- **Деплой** — https://tutors-test-case.netlify.app
+
+---
+
+## Прийняті рішення
+
+- **State management**  
+  Управління модалкою реалізоване локально в `TutorCard`, оскільки стан простий і не потребує глобального сховища.
+
+- **UI-компоненти**
+
+  - `BaseModal`, `BaseButton` — універсальні
+  - `TutorCard`, `AppHeader` — специфічні для проєкту компоненти з кастомною логікою
+
+- **SCSS без UI-фреймворків**  
+  Використано БЕМ, адаптивність реалізовано через змінні та міксіни.
+
+---
+
+## Технології
+
+Nuxt 3, TypeScript, SCSS, VueUse, Vitest.
+
+---
+
+## Запуск проєкту локально
+
+```sh
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Запуск тестів
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+```sh
+npx vitest
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
