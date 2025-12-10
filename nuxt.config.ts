@@ -11,7 +11,7 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  modules: ["@vueuse/nuxt"],
+  modules: ["@vueuse/nuxt", "@nuxt/test-utils/module"],
   app: {
     head: {
       title: "Tutors App",
