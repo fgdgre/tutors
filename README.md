@@ -40,7 +40,7 @@
 
 ## Технології
 
-Nuxt 4, TypeScript, SCSS, VueUse, Vitest.
+Nuxt 4, TypeScript, SCSS, Vitest.
 
 ---
 

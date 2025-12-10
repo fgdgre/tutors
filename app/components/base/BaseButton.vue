@@ -2,7 +2,6 @@
 withDefaults(
   defineProps<{
     variant?: "primary" | "outline";
-    fullWidth?: boolean;
     square?: boolean;
   }>(),
   {
@@ -17,7 +16,6 @@ withDefaults(
     :class="[
       `button--${variant}`,
       {
-        'button--full-width': fullWidth,
         'button--square': square,
       },
     ]"
@@ -68,10 +66,6 @@ withDefaults(
     &:active {
       color: #000;
     }
-  }
-
-  &--full-width {
-    width: 100%;
   }
 
   &--square {

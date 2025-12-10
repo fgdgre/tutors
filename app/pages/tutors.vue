@@ -1,55 +1,10 @@
 <script setup lang="ts">
-import type { ApiUser } from "~/types/api";
-import type { Tutor } from "~/types/tutor";
-import { defaultUserAvatar } from "~/constants/user-avatar";
-
 useSeoMeta({
   title: "Tutors | Tutors App",
   description: "Choose a tutor from the list of available teachers.",
 });
 
-const mockData: Omit<Tutor, "name" | "description">[] = [
-  {
-    avatar: defaultUserAvatar,
-    students: 1200,
-    subject: "math",
-  },
-  {
-    avatar: defaultUserAvatar,
-    students: 1560,
-    subject: "reading",
-  },
-  {
-    avatar: defaultUserAvatar,
-    students: 1100,
-    subject: "science",
-  },
-  {
-    avatar: defaultUserAvatar,
-    students: 900,
-    subject: "english",
-  },
-];
-
-const {
-  data: tutors,
-  pending,
-  error,
-} = useAsyncData<Tutor[]>("tutors", async () => {
-  const users = await $fetch<ApiUser[]>("https://jsonplaceholder.typicode.com/users");
-
-  return users.slice(0, 4).map((user, index): Tutor => {
-    const { avatar, subject, students } = mockData[index]!;
-
-    return {
-      name: user.name,
-      description: `${user.company.name}. ${user.company.catchPhrase}.`,
-      avatar,
-      subject,
-      students,
-    };
-  });
-});
+const { data: tutors, pending, error } = useUsers();
 </script>
 
 <template>

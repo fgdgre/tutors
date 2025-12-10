@@ -6,8 +6,6 @@ defineProps<{
   tutor: Tutor;
 }>();
 
-const isMobile = useMediaQuery("(max-width: 739px)");
-
 const isInfoModalOpen = ref(false);
 
 const handleOpenInfoModal = () => {
@@ -39,9 +37,9 @@ const handleCloseInfoModal = () => {
       <p class="tutor-card__description">{{ tutor.description }}</p>
 
       <div class="tutor-card__actions">
-        <BaseButton :full-width="isMobile" @click="console.log('Book a lesson')">Book a lesson</BaseButton>
+        <BaseButton class="actions-width" @click="console.log('Book a lesson')">Book a lesson</BaseButton>
 
-        <BaseButton :full-width="isMobile" variant="outline" @click="handleOpenInfoModal">Read more</BaseButton>
+        <BaseButton class="actions-width" variant="outline" @click="handleOpenInfoModal">Read more</BaseButton>
       </div>
     </div>
   </article>
@@ -71,6 +69,14 @@ const handleCloseInfoModal = () => {
 <style scoped lang="scss">
 @use "@/assets/scss/variables" as *;
 @use "@/assets/scss/mixins" as *;
+
+.actions-width {
+  width: 100%;
+
+  @include tablet {
+    width: auto;
+  }
+}
 
 .tutor-card {
   padding: 16px;

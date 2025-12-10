@@ -11,10 +11,15 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  modules: ["@vueuse/nuxt", "@nuxt/test-utils/module", "@nuxt/eslint"],
+  modules: ["@nuxt/test-utils/module", "@nuxt/eslint"],
   app: {
     head: {
       title: "Tutors App",
+    },
+  },
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: "https://jsonplaceholder.typicode.com",
     },
   },
 });
